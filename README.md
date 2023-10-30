@@ -39,12 +39,14 @@
       status) VALUES (2, 2, 2, 'Alice', 'Smith', 'DEF456', 1);
       INSERT INTO tickets_booked (booking_id, movie_id, show_id, firstname, lastname, 
       confirmation_no, status) VALUES (3, 3, 3, 'Eva', 'Johnson', 'GHI789', 1);
+</pre>
 
 **Usage**
 
 go mod init ticket_booking
 
 **Dependencies**
+<pre>
 1. go get gorm.io/gorm
 2. gorm.io/driver/mysql
 
@@ -54,9 +56,4 @@ go mod init ticket_booking
    go run search_module.go
 3. To perform admin tasks
    go run admin_module.go
-
-
 </pre>
-   
-
-   
