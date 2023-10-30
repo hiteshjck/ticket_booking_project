@@ -24,7 +24,7 @@
       lastname VARCHAR(50),
       confirmation_no VARCHAR(50),
       status bool);
-4. Insert dummy values to start off:
+3. Insert dummy values to start off:
    a. INSERT INTO Movies (movie_id, movie_name) VALUES (1, 'Iron man');INSERT INTO Movies 
       (movie_id, movie_name) VALUES (2, 'avengers');INSERT INTO Movies (movie_id, movie_name) VALUES 
       (3, 'Pulp Fiction');
@@ -49,7 +49,9 @@ go mod init ticket_booking
 <pre>
 1. go get gorm.io/gorm
 2. gorm.io/driver/mysql
+</pre>
 
+<pre>
 1. To book tickets
    go run booking_module.go
 2. To search information
