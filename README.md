@@ -1,12 +1,12 @@
 # ticket_booking_project
 
 **Set up your MySql database**
-<div>
+<p>
 1. Create a database called tickets_db:
    create database tickets_db;
    show databases;
    
-</div>
+</p>
 
 2. Create three tables in your database for movies, show timings and tickets booked:<br>
    a. CREATE TABLE movies (<br>
