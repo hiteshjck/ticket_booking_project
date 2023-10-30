@@ -6,7 +6,7 @@
    show databases;
 2. Create three tables in your database for movies, show timings and tickets booked:
    a. CREATE TABLE movies (
-      movie_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      movie_id int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
       movie_name VARCHAR(100) NOT NULL);
    b. Create table show_timings (
       show_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
