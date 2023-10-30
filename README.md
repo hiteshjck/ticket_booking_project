@@ -4,7 +4,7 @@
 1. Create a database called tickets_db:
    create database tickets_db;
    show databases;
-2. Create three tables in your database for movies, show timings and tickets booked:\n
+3. Create three tables in your database for movies, show timings and tickets booked:\n
    a. CREATE TABLE movies (
       movie_id int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
       movie_name VARCHAR(100) NOT NULL);
@@ -23,7 +23,7 @@
       lastname VARCHAR(50),
       confirmation_no VARCHAR(50),
       status bool);
-3. Insert dummy values to start off:
+4. Insert dummy values to start off:
    a. INSERT INTO Movies (movie_id, movie_name) VALUES (1, 'Iron man');INSERT INTO Movies 
       (movie_id, movie_name) VALUES (2, 'avengers');INSERT INTO Movies (movie_id, movie_name) VALUES 
       (3, 'Pulp Fiction');
