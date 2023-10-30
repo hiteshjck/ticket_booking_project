@@ -9,44 +9,49 @@ import (
  
 func main() {
 	
-  db, err := gorm.Open(mysql.Open("root:1234@tcp(127.0.0.1:3306)/tickets_db"))
+  db, err := gorm.Open(mysql.Open("root:1234@tcp(127.0.0.1:3306)/tickets_db?parseTime=true"))
   if err != nil {
     panic("failed to connect database")
   }
   
-  // querying the last entry
+  // querying the last entry gor getting latest booking id
   result := map[string]interface{}{}
   db.Table("tickets_booked").Select("*").Order("booking_id desc").Limit(1).Scan(&result)
-  fmt.Printf("The last booking ID is: %T", result["booking_id"])
+  //fmt.Printf("The last booking ID is: %T", result["booking_id"])
   
-  // Adding new show
+  // query for movie names and taking movie choice
+  result1 := []map[string]interface{}{}
+  db.Table("movies").Select("movie_name").Scan(&result1)
+  var movie_choice int
+  for i:=1; i<=len(result1); i++ {
+  	fmt.Println("Enter " + strconv.Itoa(i) + " for " + result1[i-1]["movie_name"].(string))
+  }
+  fmt.Printf("\nEnter your choice: ")
+  fmt.Scanf("%d\n", &movie_choice)
+  
+  // query for show timings and taking show choice
+  result2 := []map[string]interface{}{}
+  db.Table("show_timings").Select("*").Scan(&result2)
+  var show_choice int
+  for i:=1; i<=len(result2); i++ {
+  	fmt.Printf("Enter " + strconv.Itoa(i) + " for:")
+  	fmt.Println(result2[i-1]["show_date"])
+	fmt.Println(result2[i-1]["show_time"])
+	  }
+  fmt.Printf("\nEnter your choice: ")
+  fmt.Scanf("%d\n", &show_choice)
+  
+  var first_name string
+  var last_name string
+  fmt.Printf("\nEnter your first_name: ") 
+  fmt.Scan(&first_name)
+  fmt.Printf("\nEnter your last_name: ")
+  fmt.Scan(&last_name)
+  
   bk_id := result["booking_id"].(int32) 
-  
-	var number int
-    fmt.Println("enter your number 1 for IRON MAN")
-    fmt.Println("enter your number 2 for AVENGERS")
-    fmt.Println("enter your number 3 for PULP FICTION")
-    fmt.Scan(&number)
-    fmt.Println("number entered is", number)
-    var num int
-    fmt.Println("enter your number 1 for 2023-10-28")
-    fmt.Println("enter your number 2 for 2023-10-28")
-    fmt.Println("enter your number 3 for 2023-10-28")
-    fmt.Scan(&num)
-    fmt.Println("number entered is", num)
-    var first_name string
-    var last_name string
-    fmt.Println("enter your first_name")
- 
-    fmt.Scan(&first_name)
-    fmt.Println("enter your last_name")
-    fmt.Scan(&last_name)
-    
-    fmt.Printf("first_name : %s\n", first_name)
-    fmt.Printf("last_name : %s", last_name)
-    
   db.Exec("INSERT INTO tickets_booked VALUES (" + strconv.Itoa(int(bk_id)+1) + 
-  	", " + strconv.Itoa(number) + ", " + strconv.Itoa(num) + ", '" + first_name + "', '" + 
+  	", " + strconv.Itoa(movie_choice) + ", " + strconv.Itoa(show_choice) + ", '" + first_name + "', '" + 
   	last_name +"', 'a123', 1);")
   
+  fmt.Println("Ticket booked succesfully!")
 }
