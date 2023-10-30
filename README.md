@@ -42,16 +42,8 @@
 </pre>
 
 **Usage**
-
+<pre>
 go mod init ticket_booking
-
-**Dependencies**
-<pre>
-1. go get gorm.io/gorm
-2. gorm.io/driver/mysql
-</pre>
-
-<pre>
 1. To book tickets
    go run booking_module.go
 2. To search information
@@ -59,3 +51,11 @@ go mod init ticket_booking
 3. To perform admin tasks
    go run admin_module.go
 </pre>
+
+**Dependencies**
+<pre>
+1. go get gorm.io/gorm
+2. gorm.io/driver/mysql
+</pre>
+
+
