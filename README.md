@@ -2,8 +2,8 @@
 
 **Set up your MySql database**
 1. Create a database called tickets_db:
-   create database tickets_db;
-   show databases;
+create database tickets_db;
+show databases;
 3. Create three tables in your database for movies, show timings and tickets booked:\n
    a. CREATE TABLE movies (
       movie_id int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
